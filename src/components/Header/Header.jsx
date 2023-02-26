@@ -1,6 +1,6 @@
 import React, {useRef,useEffect} from 'react';
 import './header.css';
-import {NavLink,Link } from 'react-router-dom';
+import {NavLink,Link,useNavigate } from 'react-router-dom';
 
 import {motion} from 'framer-motion';
 
@@ -12,9 +12,10 @@ import { useSelector} from 'react-redux';
 
 const Header = () => {
 
-  const headerRef = useRef(null)
-  const totalQuantity = useSelector(state => state.cart.totalQuantity)
-  const menuRef = useRef(null)
+  const headerRef = useRef(null);
+  const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const menuRef = useRef(null);
+  const navigate = useNavigate();
 
   const stickyHeaderFunc =() => {
     window.addEventListener('scroll',() =>{
@@ -49,6 +50,10 @@ const Header = () => {
       display: 'Cart'
     },
   ]
+
+  const navigateToCart =() =>{
+      navigate('/cart')
+  }
 
   return (
     <header className='header' ref={headerRef}>
@@ -97,7 +102,8 @@ const Header = () => {
                   <i className='ri-heart-line'></i>
                   <span className='badge'>1</span>
                   </span>
-                <span className='cart__icon'><i className='ri-shopping-bag-line'></i>
+                <span className='cart__icon' onClick={navigateToCart}>
+                  <i className='ri-shopping-bag-line'></i>
                 <span className='badge'>{totalQuantity}</span>
                 </span>
 
