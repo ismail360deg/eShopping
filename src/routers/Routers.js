@@ -10,6 +10,7 @@ import Checkout from '../Pages/Checkout';
 import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
 import Main from '../components/Layout/Main';
+import ProtectedRoute from './ProtectedRoute';
 
 
 
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout',
-                element: <Checkout></Checkout>
+                element: <ProtectedRoute><Checkout></Checkout></ProtectedRoute>
             },
             {
                 path: '/login',
