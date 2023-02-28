@@ -8,6 +8,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase.config';
 import {toast} from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const Login = () => {
         <Container>
           <Row>
             {
-              loading? <Col lg='12' className='text-center'><h5 className='fw-bold'>Loading....</h5></Col> 
+              loading? <Col lg='12' className='text-center'><h5 className='fw-bold'><Loading></Loading></h5></Col> 
               :
               <Col lg='6' className='m-auto text-center'>
               <h3 className='fw-bold mb-4'>Login</h3>

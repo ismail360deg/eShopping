@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 
 const nav__links = [
   {
-    path: '/home',
+    path: '/',
     display: 'Home'
   },
   {
@@ -51,7 +51,7 @@ const Header = () => {
   const logout = () => {
     signOut(auth).then(() => {
       toast.success('Logged out');
-      navigate('/home')
+      navigate('/')
     }).catch(err=>{
       toast.error(err.message);
     });
@@ -79,7 +79,7 @@ const Header = () => {
       <Container>
         <Row>
           <div className='nav__wrapper'>
-          <Link to='/home'>
+          <Link to='/'>
           <div className='logo'>
               <img src={logo} alt="logo" />
             <div>
@@ -144,6 +144,7 @@ const Header = () => {
                     <div className='d-flex align-items-center justify-content-center flex-column'>
                       <Link to='/signup'>Signup</Link>
                       <Link to='/login'>Login</Link>
+                      <Link to='/dashboard'>Dashboard</Link>
                     </div>
                     )}
                 </div>
